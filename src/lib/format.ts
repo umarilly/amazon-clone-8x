@@ -5,6 +5,10 @@ export function formatPrice(price: number, currency: string = "USD"): string {
   }).format(price);
 }
 
+export function slugify(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
 export function formatReviewCount(count: number): string {
   if (count >= 1000) {
     return `${(count / 1000).toFixed(count % 1000 === 0 ? 0 : 1)}K`;

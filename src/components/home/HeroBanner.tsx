@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { slugify } from "@/components/layout/CategoryNav";
+import Link from "next/link";
 import type { Product } from "@/lib/types";
 
 interface CategoryTeaser {
@@ -33,9 +33,9 @@ export function HeroBanner({ teasers }: { teasers: CategoryTeaser[] }) {
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-4 sm:grid-cols-4">
         {teasers.map(({ category, product }) => (
-          <a
+          <Link
             key={category}
-            href={`#${slugify(category)}`}
+            href={`/search?category=${encodeURIComponent(category)}`}
             className="flex flex-col gap-3 rounded-lg bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
           >
             <h2 className="text-base font-bold text-foreground">
@@ -54,7 +54,7 @@ export function HeroBanner({ teasers }: { teasers: CategoryTeaser[] }) {
             <span className="text-sm text-link hover:underline">
               See more
             </span>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

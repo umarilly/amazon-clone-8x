@@ -3,7 +3,13 @@ import { StarRating } from "./StarRating";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  priority = false,
+}: {
+  product: Product;
+  priority?: boolean;
+}) {
   const outOfStock = product.stock <= 0;
 
   return (
@@ -13,6 +19,7 @@ export function ProductCard({ product }: { product: Product }) {
           src={product.images[0]}
           alt={product.name}
           fill
+          priority={priority}
           sizes="(max-width: 640px) 160px, (max-width: 1024px) 33vw, 190px"
           className="object-cover transition-transform duration-200 group-hover:scale-105"
         />
