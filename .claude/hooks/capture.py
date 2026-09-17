@@ -10,6 +10,7 @@ a PROMPT + RESPONSE entry pair to a per-session markdown log in
 import json
 import sys
 import os
+import time
 import datetime
 import uuid
 
@@ -109,8 +110,17 @@ def main():
     if not transcript_path or not os.path.exists(transcript_path):
         sys.exit(0)
 
-    entries = read_transcript(transcript_path)
-    prompt_text, response_text, model_name = find_last_turn(entries)
+    # The transcript file can lag slightly behind the Stop event firing, so
+    # the final assistant text block may not be flushed yet on the first
+    # read. Retry briefly rather than logging an empty response.
+    prompt_text = response_text = model_name = None
+    for attempt in range(8):
+        entries = read_transcript(transcript_path)
+        prompt_text, response_text, model_name = find_last_turn(entries)
+        if prompt_text and response_text:
+            break
+        time.sleep(0.3)
+
     if not prompt_text:
         sys.exit(0)
 
@@ -120,7 +130,7 @@ def main():
 
     lines = []
     if is_new:
-        author = os.environ.get("AGENT_CAPTURE_AUTHOR", "your-github-handle")
+        author = os.environ.get("AGENT_CAPTURE_AUTHOR", "umarilly")
         lines.append("---")
         lines.append(f"session_id: {session_id}")
         lines.append(f"date: {datetime.date.today().isoformat()}")
