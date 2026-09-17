@@ -2,25 +2,45 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f1111;
+
+  /*
+   * Amazon reference palette — sampled via getComputedStyle() against the
+   * live amazon.com header, search results, and product-detail buybox
+   * (2026-09-17), not guessed from memory. --color-star is the one
+   * exception: Amazon renders star ratings as an image sprite with no
+   * exposed CSS color, so this uses Amazon's publicly documented brand
+   * value for star ratings instead of a live-extracted one.
+   */
+  --color-header: #131921;
+  --color-subnav: #232f3e;
+  --color-cta: #ffd814;
+  --color-cta-border: #0f1111;
+  --color-search-btn: #febd69;
+  --color-cart-badge: #f08804;
+  --color-link: #2162a1;
+  --color-muted: #565959;
+  --color-star: #ffa41c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-header: var(--color-header);
+  --color-subnav: var(--color-subnav);
+  --color-cta: var(--color-cta);
+  --color-cta-border: var(--color-cta-border);
+  --color-search-btn: var(--color-search-btn);
+  --color-cart-badge: var(--color-cart-badge);
+  --color-link: var(--color-link);
+  --color-muted: var(--color-muted);
+  --color-star: var(--color-star);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Amazon Ember", Arial, Helvetica, sans-serif;
 }
