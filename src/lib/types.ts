@@ -13,6 +13,15 @@ export interface Product {
   tags: string[];
 }
 
+export interface Review {
+  id: string;
+  author: string;
+  rating: number;
+  date: string;
+  title: string;
+  body: string;
+}
+
 export interface ProductFilters {
   category?: string;
   minPrice?: number;
