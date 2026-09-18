@@ -1,6 +1,7 @@
 import type { Order } from "./types";
 
-const STORAGE_KEY = "amazon-clone-last-order";
+const LAST_ORDER_KEY = "amazon-clone-last-order";
+const HISTORY_KEY = "amazon-clone-orders";
 
 export function generateOrderNumber(): string {
   const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, "");
@@ -10,18 +11,31 @@ export function generateOrderNumber(): string {
 
 export function saveLastOrder(order: Order): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
+    localStorage.setItem(LAST_ORDER_KEY, JSON.stringify(order));
+    const historyRaw = localStorage.getItem(HISTORY_KEY);
+    const history: Order[] = historyRaw ? JSON.parse(historyRaw) : [];
+    localStorage.setItem(HISTORY_KEY, JSON.stringify([order, ...history]));
   } catch {
-    // Storage may be unavailable — the confirmation page has a fallback.
+    // Storage may be unavailable — the confirmation/orders pages have fallbacks.
   }
 }
 
 export function getLastOrder(): Order | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(LAST_ORDER_KEY);
     if (!raw) return null;
     return JSON.parse(raw) as Order;
   } catch {
     return null;
+  }
+}
+
+export function getOrderHistory(): Order[] {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw) as Order[];
+  } catch {
+    return [];
   }
 }

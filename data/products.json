@@ -10,12 +10,29 @@
     "reviewCount": 2318,
     "stock": 42,
     "images": [
-      "https://picsum.photos/seed/p001-a/800/800",
-      "https://picsum.photos/seed/p001-b/800/800",
-      "https://picsum.photos/seed/p001-c/800/800"
+      "https://picsum.photos/seed/p000-a/800/800",
+      "https://picsum.photos/seed/p000-b/800/800",
+      "https://picsum.photos/seed/p000-c/800/800"
     ],
     "description": "Over-ear Bluetooth 5.3 headphones with active noise cancellation, 40-hour battery life, and a foldable design for travel.",
-    "tags": ["headphones", "wireless", "audio"]
+    "tags": [
+      "headphones",
+      "wireless",
+      "audio"
+    ],
+    "brand": "AuraWave",
+    "color": "Black",
+    "connectivity": "Bluetooth",
+    "specialFeatures": [
+      "Noise Cancelling",
+      "Foldable Design",
+      "Long Battery Life"
+    ],
+    "includedComponents": [
+      "Charging Cable",
+      "Carrying Case"
+    ],
+    "discountPercent": 15
   },
   {
     "id": "p002",
@@ -28,11 +45,27 @@
     "reviewCount": 1104,
     "stock": 15,
     "images": [
-      "https://picsum.photos/seed/p002-a/800/800",
-      "https://picsum.photos/seed/p002-b/800/800"
+      "https://picsum.photos/seed/p001-a/800/800",
+      "https://picsum.photos/seed/p001-b/800/800",
+      "https://picsum.photos/seed/p001-c/800/800"
     ],
     "description": "27-inch IPS 4K display with 99% sRGB coverage, HDR10 support, and height-adjustable stand for home office setups.",
-    "tags": ["monitor", "display", "office"]
+    "tags": [
+      "monitor",
+      "display",
+      "office"
+    ],
+    "brand": "PixelCore",
+    "color": "Black",
+    "connectivity": "Wired (HDMI/DisplayPort)",
+    "specialFeatures": [
+      "4K UHD",
+      "Height Adjustable Stand"
+    ],
+    "includedComponents": [
+      "Power Cable",
+      "HDMI Cable"
+    ]
   },
   {
     "id": "p003",
@@ -45,10 +78,28 @@
     "reviewCount": 5602,
     "stock": 210,
     "images": [
-      "https://picsum.photos/seed/p003-a/800/800"
+      "https://picsum.photos/seed/p002-a/800/800",
+      "https://picsum.photos/seed/p002-b/800/800",
+      "https://picsum.photos/seed/p002-c/800/800"
     ],
     "description": "Compact 3-port GaN charger delivering 65W fast charging for laptops, tablets, and phones simultaneously.",
-    "tags": ["charger", "usb-c", "accessories"]
+    "tags": [
+      "charger",
+      "usb-c",
+      "accessories"
+    ],
+    "brand": "VoltStream",
+    "color": "White",
+    "connectivity": "USB-C",
+    "specialFeatures": [
+      "Fast Charging",
+      "GaN Technology",
+      "Compact Design"
+    ],
+    "includedComponents": [
+      "Charger"
+    ],
+    "discountPercent": 20
   },
   {
     "id": "p004",
@@ -61,11 +112,28 @@
     "reviewCount": 876,
     "stock": 0,
     "images": [
-      "https://picsum.photos/seed/p004-a/800/800",
-      "https://picsum.photos/seed/p004-b/800/800"
+      "https://picsum.photos/seed/p003-a/800/800",
+      "https://picsum.photos/seed/p003-b/800/800",
+      "https://picsum.photos/seed/p003-c/800/800"
     ],
     "description": "Hot-swappable mechanical keyboard with per-key RGB, tri-mode connectivity (2.4GHz/Bluetooth/USB-C), and PBT keycaps.",
-    "tags": ["keyboard", "mechanical", "gaming"]
+    "tags": [
+      "keyboard",
+      "mechanical",
+      "gaming"
+    ],
+    "brand": "Nimbus",
+    "color": "Black",
+    "connectivity": "Wireless",
+    "specialFeatures": [
+      "Mechanical Switches",
+      "Hot-Swappable",
+      "Compact 75% Layout"
+    ],
+    "includedComponents": [
+      "USB Receiver",
+      "USB-C Cable"
+    ]
   },
   {
     "id": "p005",
@@ -78,10 +146,29 @@
     "reviewCount": 613,
     "stock": 58,
     "images": [
-      "https://picsum.photos/seed/p005-a/800/800"
+      "https://picsum.photos/seed/p004-a/800/800",
+      "https://picsum.photos/seed/p004-b/800/800",
+      "https://picsum.photos/seed/p004-c/800/800"
     ],
     "description": "Full HD webcam with built-in adjustable ring light, autofocus, and a noise-reducing dual microphone.",
-    "tags": ["webcam", "video", "office"]
+    "tags": [
+      "webcam",
+      "video",
+      "office"
+    ],
+    "brand": "ClearView",
+    "color": "Black",
+    "connectivity": "USB",
+    "specialFeatures": [
+      "1080p HD",
+      "Built-in Ring Light",
+      "Auto Focus"
+    ],
+    "includedComponents": [
+      "Webcam",
+      "Mount Clip"
+    ],
+    "discountPercent": 10
   },
   {
     "id": "p006",
@@ -94,11 +181,29 @@
     "reviewCount": 3987,
     "stock": 130,
     "images": [
-      "https://picsum.photos/seed/p006-a/800/800",
-      "https://picsum.photos/seed/p006-b/800/800"
+      "https://picsum.photos/seed/p005-a/800/800",
+      "https://picsum.photos/seed/p005-b/800/800",
+      "https://picsum.photos/seed/p005-c/800/800"
     ],
     "description": "IPX5 water-resistant earbuds with active noise cancellation, touch controls, and a compact charging case.",
-    "tags": ["earbuds", "wireless", "audio"]
+    "tags": [
+      "earbuds",
+      "wireless",
+      "audio"
+    ],
+    "brand": "DriftPod",
+    "color": "White",
+    "connectivity": "Bluetooth",
+    "specialFeatures": [
+      "Active Noise Cancelling",
+      "Touch Controls",
+      "Sweat Resistant"
+    ],
+    "includedComponents": [
+      "Charging Case",
+      "USB-C Cable",
+      "Extra Ear Tips"
+    ]
   },
   {
     "id": "p007",
@@ -111,11 +216,26 @@
     "reviewCount": 4210,
     "stock": 76,
     "images": [
-      "https://picsum.photos/seed/p007-a/800/800",
-      "https://picsum.photos/seed/p007-b/800/800"
+      "https://picsum.photos/seed/p006-a/800/800",
+      "https://picsum.photos/seed/p006-b/800/800",
+      "https://picsum.photos/seed/p006-c/800/800"
     ],
-    "description": "Enameled cast iron dutch oven with tight-fitting lid, oven-safe to 500°F, ideal for braising, baking, and stews.",
-    "tags": ["cookware", "kitchen"]
+    "description": "Enameled cast iron dutch oven with tight-fitting lid, oven-safe to 500\u00b0F, ideal for braising, baking, and stews.",
+    "tags": [
+      "cookware",
+      "kitchen"
+    ],
+    "brand": "Hearthstone",
+    "color": "Emerald Green",
+    "material": "Cast Iron",
+    "specialFeatures": [
+      "Enameled Coating",
+      "Oven Safe"
+    ],
+    "includedComponents": [
+      "Lid"
+    ],
+    "discountPercent": 12
   },
   {
     "id": "p008",
@@ -128,10 +248,27 @@
     "reviewCount": 2764,
     "stock": 39,
     "images": [
-      "https://picsum.photos/seed/p008-a/800/800"
+      "https://picsum.photos/seed/p007-a/800/800",
+      "https://picsum.photos/seed/p007-b/800/800",
+      "https://picsum.photos/seed/p007-c/800/800"
     ],
     "description": "Programmable drip coffee maker with 12-cup glass carafe, auto shut-off, and reusable gold-tone filter.",
-    "tags": ["coffee", "kitchen", "appliance"]
+    "tags": [
+      "coffee",
+      "kitchen",
+      "appliance"
+    ],
+    "brand": "BrewLine",
+    "color": "Black",
+    "material": "Stainless Steel",
+    "specialFeatures": [
+      "Programmable Timer",
+      "Auto Shutoff"
+    ],
+    "includedComponents": [
+      "Carafe",
+      "Filter Basket"
+    ]
   },
   {
     "id": "p009",
@@ -144,11 +281,28 @@
     "reviewCount": 6021,
     "stock": 94,
     "images": [
-      "https://picsum.photos/seed/p009-a/800/800",
-      "https://picsum.photos/seed/p009-b/800/800"
+      "https://picsum.photos/seed/p008-a/800/800",
+      "https://picsum.photos/seed/p008-b/800/800",
+      "https://picsum.photos/seed/p008-c/800/800"
     ],
     "description": "Breathable bamboo-derived rayon sheet set with deep pockets, moisture-wicking finish, and a silky matte feel.",
-    "tags": ["bedding", "home"]
+    "tags": [
+      "bedding",
+      "home"
+    ],
+    "brand": "LinenCloud",
+    "color": "Ivory",
+    "material": "Bamboo",
+    "specialFeatures": [
+      "Cooling",
+      "Wrinkle Resistant"
+    ],
+    "includedComponents": [
+      "Flat Sheet",
+      "Fitted Sheet",
+      "2 Pillowcases"
+    ],
+    "discountPercent": 25
   },
   {
     "id": "p010",
@@ -161,10 +315,26 @@
     "reviewCount": 1832,
     "stock": 21,
     "images": [
-      "https://picsum.photos/seed/p010-a/800/800"
+      "https://picsum.photos/seed/p009-a/800/800",
+      "https://picsum.photos/seed/p009-b/800/800",
+      "https://picsum.photos/seed/p009-c/800/800"
     ],
     "description": "True HEPA air purifier covering up to 500 sq ft, with 3-stage filtration and a quiet sleep mode.",
-    "tags": ["air-purifier", "home"]
+    "tags": [
+      "air-purifier",
+      "home"
+    ],
+    "brand": "Verdant",
+    "color": "White",
+    "material": "Plastic",
+    "specialFeatures": [
+      "True HEPA Filter",
+      "Quiet Operation"
+    ],
+    "includedComponents": [
+      "Filter",
+      "Remote"
+    ]
   },
   {
     "id": "p011",
@@ -177,11 +347,28 @@
     "reviewCount": 947,
     "stock": 12,
     "images": [
-      "https://picsum.photos/seed/p011-a/800/800",
-      "https://picsum.photos/seed/p011-b/800/800"
+      "https://picsum.photos/seed/p010-a/800/800",
+      "https://picsum.photos/seed/p010-b/800/800",
+      "https://picsum.photos/seed/p010-c/800/800"
     ],
     "description": "Dual-motor height-adjustable desk with memory presets, anti-collision sensor, and a scratch-resistant laminate top.",
-    "tags": ["desk", "furniture", "office"]
+    "tags": [
+      "desk",
+      "furniture",
+      "office"
+    ],
+    "brand": "Kindlewood",
+    "color": "Walnut",
+    "material": "Engineered Wood",
+    "specialFeatures": [
+      "Electric Height Adjustment",
+      "Memory Presets"
+    ],
+    "includedComponents": [
+      "Desktop",
+      "Motorized Legs",
+      "Assembly Kit"
+    ]
   },
   {
     "id": "p012",
@@ -194,10 +381,28 @@
     "reviewCount": 1509,
     "stock": 0,
     "images": [
-      "https://picsum.photos/seed/p012-a/800/800"
+      "https://picsum.photos/seed/p011-a/800/800",
+      "https://picsum.photos/seed/p011-b/800/800",
+      "https://picsum.photos/seed/p011-c/800/800"
     ],
     "description": "10-piece nonstick cookware set including pans, pots, and lids, dishwasher-safe and PFOA-free coating.",
-    "tags": ["cookware", "kitchen"]
+    "tags": [
+      "cookware",
+      "kitchen"
+    ],
+    "brand": "SunMeadow",
+    "color": "Gray",
+    "material": "Aluminum",
+    "specialFeatures": [
+      "Nonstick Coating",
+      "Dishwasher Safe"
+    ],
+    "includedComponents": [
+      "Pots",
+      "Pans",
+      "Lids"
+    ],
+    "discountPercent": 18
   },
   {
     "id": "p013",
@@ -210,10 +415,19 @@
     "reviewCount": 3320,
     "stock": 156,
     "images": [
-      "https://picsum.photos/seed/p013-a/800/800"
+      "https://picsum.photos/seed/p012-a/800/800",
+      "https://picsum.photos/seed/p012-b/800/800",
+      "https://picsum.photos/seed/p012-c/800/800"
     ],
     "description": "A literary science-fiction novel following three generations of a family aboard a generational starship.",
-    "tags": ["fiction", "book"]
+    "tags": [
+      "fiction",
+      "book"
+    ],
+    "brand": "Harborlight Press",
+    "format": "Hardcover",
+    "language": "English",
+    "genre": "Fiction"
   },
   {
     "id": "p014",
@@ -226,10 +440,20 @@
     "reviewCount": 812,
     "stock": 63,
     "images": [
-      "https://picsum.photos/seed/p014-a/800/800"
+      "https://picsum.photos/seed/p013-a/800/800",
+      "https://picsum.photos/seed/p013-b/800/800",
+      "https://picsum.photos/seed/p013-c/800/800"
     ],
     "description": "An illustrated nonfiction exploration of rivers that have changed course or disappeared throughout history.",
-    "tags": ["nonfiction", "book"]
+    "tags": [
+      "nonfiction",
+      "book"
+    ],
+    "brand": "Meridian House",
+    "format": "Hardcover",
+    "language": "English",
+    "genre": "Nonfiction",
+    "discountPercent": 10
   },
   {
     "id": "p015",
@@ -242,10 +466,20 @@
     "reviewCount": 2140,
     "stock": 88,
     "images": [
-      "https://picsum.photos/seed/p015-a/800/800"
+      "https://picsum.photos/seed/p014-a/800/800",
+      "https://picsum.photos/seed/p014-b/800/800",
+      "https://picsum.photos/seed/p014-c/800/800"
     ],
     "description": "A practical guide to deep work and attention management backed by cognitive science research.",
-    "tags": ["nonfiction", "productivity", "book"]
+    "tags": [
+      "nonfiction",
+      "productivity",
+      "book"
+    ],
+    "brand": "Northwind Books",
+    "format": "Paperback",
+    "language": "English",
+    "genre": "Self-Help"
   },
   {
     "id": "p016",
@@ -258,10 +492,20 @@
     "reviewCount": 4995,
     "stock": 201,
     "images": [
-      "https://picsum.photos/seed/p016-a/800/800"
+      "https://picsum.photos/seed/p015-a/800/800",
+      "https://picsum.photos/seed/p015-b/800/800",
+      "https://picsum.photos/seed/p015-c/800/800"
     ],
     "description": "A historical fiction mystery set in 1920s Lisbon, following a mapmaker's search for her missing father.",
-    "tags": ["fiction", "mystery", "book"]
+    "tags": [
+      "fiction",
+      "mystery",
+      "book"
+    ],
+    "brand": "Harborlight Press",
+    "format": "Paperback",
+    "language": "English",
+    "genre": "Fiction"
   },
   {
     "id": "p017",
@@ -274,10 +518,20 @@
     "reviewCount": 1276,
     "stock": 140,
     "images": [
-      "https://picsum.photos/seed/p017-a/800/800"
+      "https://picsum.photos/seed/p016-a/800/800",
+      "https://picsum.photos/seed/p016-b/800/800",
+      "https://picsum.photos/seed/p016-c/800/800"
     ],
     "description": "A colorful, illustrated atlas designed for children ages 6-10, covering geography, animals, and cultures.",
-    "tags": ["kids", "book"]
+    "tags": [
+      "kids",
+      "book"
+    ],
+    "brand": "Meridian House",
+    "format": "Hardcover",
+    "language": "English",
+    "genre": "Children's",
+    "discountPercent": 15
   },
   {
     "id": "p018",
@@ -290,10 +544,19 @@
     "reviewCount": 987,
     "stock": 54,
     "images": [
-      "https://picsum.photos/seed/p018-a/800/800"
+      "https://picsum.photos/seed/p017-a/800/800",
+      "https://picsum.photos/seed/p017-b/800/800",
+      "https://picsum.photos/seed/p017-c/800/800"
     ],
     "description": "Step-by-step recipes and troubleshooting guides for baking sourdough bread at home, no starter experience required.",
-    "tags": ["cookbook", "book"]
+    "tags": [
+      "cookbook",
+      "book"
+    ],
+    "brand": "Northwind Books",
+    "format": "Paperback",
+    "language": "English",
+    "genre": "Cooking"
   },
   {
     "id": "p019",
@@ -306,10 +569,23 @@
     "reviewCount": 7654,
     "stock": 312,
     "images": [
-      "https://picsum.photos/seed/p019-a/800/800"
+      "https://picsum.photos/seed/p018-a/800/800",
+      "https://picsum.photos/seed/p018-b/800/800",
+      "https://picsum.photos/seed/p018-c/800/800"
     ],
     "description": "Lightweight vitamin C serum with hyaluronic acid, formulated to brighten skin tone and reduce the look of dark spots.",
-    "tags": ["skincare", "beauty"]
+    "tags": [
+      "skincare",
+      "beauty"
+    ],
+    "brand": "Velora",
+    "itemForm": "Serum",
+    "skinType": "All Skin Types",
+    "specialFeatures": [
+      "Cruelty-Free",
+      "Fragrance-Free"
+    ],
+    "discountPercent": 20
   },
   {
     "id": "p020",
@@ -322,11 +598,21 @@
     "reviewCount": 2298,
     "stock": 47,
     "images": [
-      "https://picsum.photos/seed/p020-a/800/800",
-      "https://picsum.photos/seed/p020-b/800/800"
+      "https://picsum.photos/seed/p019-a/800/800",
+      "https://picsum.photos/seed/p019-b/800/800",
+      "https://picsum.photos/seed/p019-c/800/800"
     ],
     "description": "Sonic electric toothbrush with 5 cleaning modes, a 2-minute smart timer, and 3-week battery life.",
-    "tags": ["personal-care", "oral-care"]
+    "tags": [
+      "personal-care",
+      "oral-care"
+    ],
+    "brand": "PureNest",
+    "itemForm": "Electric Device",
+    "specialFeatures": [
+      "Sonic Vibration",
+      "Rechargeable"
+    ]
   },
   {
     "id": "p021",
@@ -339,10 +625,22 @@
     "reviewCount": 3891,
     "stock": 168,
     "images": [
-      "https://picsum.photos/seed/p021-a/800/800"
+      "https://picsum.photos/seed/p020-a/800/800",
+      "https://picsum.photos/seed/p020-b/800/800",
+      "https://picsum.photos/seed/p020-c/800/800"
     ],
     "description": "Lightweight argan oil treatment that tames frizz and adds shine without leaving hair greasy.",
-    "tags": ["haircare", "beauty"]
+    "tags": [
+      "haircare",
+      "beauty"
+    ],
+    "brand": "SilkRoot",
+    "itemForm": "Oil",
+    "skinType": "All Hair Types",
+    "specialFeatures": [
+      "Cruelty-Free",
+      "Lightweight"
+    ]
   },
   {
     "id": "p022",
@@ -355,10 +653,25 @@
     "reviewCount": 1543,
     "stock": 0,
     "images": [
-      "https://picsum.photos/seed/p022-a/800/800"
+      "https://picsum.photos/seed/p021-a/800/800",
+      "https://picsum.photos/seed/p021-b/800/800",
+      "https://picsum.photos/seed/p021-c/800/800"
     ],
     "description": "Broad-spectrum mineral sunscreen with zinc oxide, lightweight and reef-safe, no white cast on most skin tones.",
-    "tags": ["skincare", "sunscreen", "beauty"]
+    "tags": [
+      "skincare",
+      "sunscreen",
+      "beauty"
+    ],
+    "brand": "GlowAtlas",
+    "itemForm": "Lotion",
+    "skinType": "Sensitive Skin",
+    "specialFeatures": [
+      "Mineral",
+      "Reef-Safe",
+      "SPF 50"
+    ],
+    "discountPercent": 10
   },
   {
     "id": "p023",
@@ -371,10 +684,22 @@
     "reviewCount": 2065,
     "stock": 73,
     "images": [
-      "https://picsum.photos/seed/p023-a/800/800"
+      "https://picsum.photos/seed/p022-a/800/800",
+      "https://picsum.photos/seed/p022-b/800/800",
+      "https://picsum.photos/seed/p022-c/800/800"
     ],
     "description": "300ml ultrasonic diffuser with 7-color LED lighting and auto shut-off, ideal for essential oils.",
-    "tags": ["wellness", "home", "beauty"]
+    "tags": [
+      "wellness",
+      "home",
+      "beauty"
+    ],
+    "brand": "CalmWave",
+    "itemForm": "Electric Device",
+    "specialFeatures": [
+      "Ultrasonic",
+      "Auto Shutoff"
+    ]
   },
   {
     "id": "p024",
@@ -387,10 +712,23 @@
     "reviewCount": 5230,
     "stock": 220,
     "images": [
-      "https://picsum.photos/seed/p024-a/800/800"
+      "https://picsum.photos/seed/p023-a/800/800",
+      "https://picsum.photos/seed/p023-b/800/800",
+      "https://picsum.photos/seed/p023-c/800/800"
     ],
     "description": "10-pack of hydrating sheet masks infused with hyaluronic acid and aloe vera for daily skincare routines.",
-    "tags": ["skincare", "beauty"]
+    "tags": [
+      "skincare",
+      "beauty"
+    ],
+    "brand": "Veloura",
+    "itemForm": "Sheet Mask",
+    "skinType": "Dry Skin",
+    "specialFeatures": [
+      "Hydrating",
+      "Cruelty-Free"
+    ],
+    "discountPercent": 30
   },
   {
     "id": "p025",
@@ -403,11 +741,26 @@
     "reviewCount": 1890,
     "stock": 66,
     "images": [
-      "https://picsum.photos/seed/p025-a/800/800",
-      "https://picsum.photos/seed/p025-b/800/800"
+      "https://picsum.photos/seed/p024-a/800/800",
+      "https://picsum.photos/seed/p024-b/800/800",
+      "https://picsum.photos/seed/p024-c/800/800"
     ],
     "description": "500-piece compatible building block set with a storage box, designed for open-ended creative play ages 5+.",
-    "tags": ["toys", "building", "kids"]
+    "tags": [
+      "toys",
+      "building",
+      "kids"
+    ],
+    "brand": "Buildrix",
+    "material": "Plastic",
+    "ageRange": "6-12 years",
+    "specialFeatures": [
+      "Compatible with Major Brick Brands"
+    ],
+    "includedComponents": [
+      "500 Pieces",
+      "Storage Bag"
+    ]
   },
   {
     "id": "p026",
@@ -420,10 +773,26 @@
     "reviewCount": 764,
     "stock": 102,
     "images": [
-      "https://picsum.photos/seed/p026-a/800/800"
+      "https://picsum.photos/seed/p025-a/800/800",
+      "https://picsum.photos/seed/p025-b/800/800",
+      "https://picsum.photos/seed/p025-c/800/800"
     ],
     "description": "1000-piece jigsaw puzzle with a high-gloss finished print, recommended for ages 12 and up.",
-    "tags": ["puzzle", "toys"]
+    "tags": [
+      "puzzle",
+      "toys"
+    ],
+    "brand": "PuzzleQuest",
+    "material": "Cardboard",
+    "ageRange": "8+ years",
+    "specialFeatures": [
+      "Eco-Friendly Materials"
+    ],
+    "includedComponents": [
+      "1000 Pieces",
+      "Poster Reference"
+    ],
+    "discountPercent": 15
   },
   {
     "id": "p027",
@@ -436,10 +805,25 @@
     "reviewCount": 1332,
     "stock": 40,
     "images": [
-      "https://picsum.photos/seed/p027-a/800/800"
+      "https://picsum.photos/seed/p026-a/800/800",
+      "https://picsum.photos/seed/p026-b/800/800",
+      "https://picsum.photos/seed/p026-c/800/800"
     ],
     "description": "54-piece premium wood stacking game, a classic party and family game night favorite.",
-    "tags": ["games", "family"]
+    "tags": [
+      "games",
+      "family"
+    ],
+    "brand": "Stackado",
+    "material": "Wood",
+    "ageRange": "4+ years",
+    "specialFeatures": [
+      "Handcrafted"
+    ],
+    "includedComponents": [
+      "54 Blocks",
+      "Storage Bag"
+    ]
   },
   {
     "id": "p028",
@@ -452,11 +836,28 @@
     "reviewCount": 598,
     "stock": 0,
     "images": [
-      "https://picsum.photos/seed/p028-a/800/800",
-      "https://picsum.photos/seed/p028-b/800/800"
+      "https://picsum.photos/seed/p027-a/800/800",
+      "https://picsum.photos/seed/p027-b/800/800",
+      "https://picsum.photos/seed/p027-c/800/800"
     ],
     "description": "360-degree flip remote control car with all-terrain tires and a rechargeable battery pack.",
-    "tags": ["rc", "toys"]
+    "tags": [
+      "rc",
+      "toys"
+    ],
+    "brand": "RoverBot",
+    "material": "Plastic",
+    "ageRange": "8+ years",
+    "specialFeatures": [
+      "Remote Control",
+      "Rechargeable Battery"
+    ],
+    "includedComponents": [
+      "Car",
+      "Remote",
+      "USB Cable"
+    ],
+    "discountPercent": 22
   },
   {
     "id": "p029",
@@ -469,10 +870,25 @@
     "reviewCount": 921,
     "stock": 84,
     "images": [
-      "https://picsum.photos/seed/p029-a/800/800"
+      "https://picsum.photos/seed/p028-a/800/800",
+      "https://picsum.photos/seed/p028-b/800/800",
+      "https://picsum.photos/seed/p028-c/800/800"
     ],
     "description": "600-card trivia game spanning six categories, designed for 2-8 players ages 8 and up.",
-    "tags": ["games", "family"]
+    "tags": [
+      "games",
+      "family"
+    ],
+    "brand": "CardVenture",
+    "material": "Cardstock",
+    "ageRange": "10+ years",
+    "specialFeatures": [
+      "Family Friendly"
+    ],
+    "includedComponents": [
+      "400 Cards",
+      "Rules Booklet"
+    ]
   },
   {
     "id": "p030",
@@ -485,10 +901,26 @@
     "reviewCount": 2410,
     "stock": 97,
     "images": [
-      "https://picsum.photos/seed/p030-a/800/800"
+      "https://picsum.photos/seed/p029-a/800/800",
+      "https://picsum.photos/seed/p029-b/800/800",
+      "https://picsum.photos/seed/p029-c/800/800"
     ],
     "description": "Ultra-soft weighted plush bear filled with glass beads for a calming, huggable feel.",
-    "tags": ["plush", "toys", "kids"]
+    "tags": [
+      "plush",
+      "toys",
+      "kids"
+    ],
+    "brand": "PlushDen",
+    "material": "Plush Fabric",
+    "ageRange": "3+ years",
+    "specialFeatures": [
+      "Weighted",
+      "Machine Washable"
+    ],
+    "includedComponents": [
+      "Teddy Bear"
+    ]
   },
   {
     "id": "p031",
@@ -501,11 +933,26 @@
     "reviewCount": 1456,
     "stock": 33,
     "images": [
-      "https://picsum.photos/seed/p031-a/800/800",
-      "https://picsum.photos/seed/p031-b/800/800"
+      "https://picsum.photos/seed/p030-a/800/800",
+      "https://picsum.photos/seed/p030-b/800/800",
+      "https://picsum.photos/seed/p030-c/800/800"
     ],
     "description": "40-liter hiking backpack with a ventilated back panel, rain cover, and multiple compression straps.",
-    "tags": ["outdoors", "backpack"]
+    "tags": [
+      "outdoors",
+      "backpack"
+    ],
+    "brand": "TrailForge",
+    "color": "Charcoal",
+    "material": "Ripstop Nylon",
+    "specialFeatures": [
+      "Water Resistant",
+      "Padded Straps"
+    ],
+    "includedComponents": [
+      "Rain Cover"
+    ],
+    "discountPercent": 15
   },
   {
     "id": "p032",
@@ -518,10 +965,22 @@
     "reviewCount": 6789,
     "stock": 189,
     "images": [
-      "https://picsum.photos/seed/p032-a/800/800"
+      "https://picsum.photos/seed/p031-a/800/800",
+      "https://picsum.photos/seed/p031-b/800/800",
+      "https://picsum.photos/seed/p031-c/800/800"
     ],
     "description": "Double-wall vacuum insulated bottle that keeps drinks cold for 24 hours or hot for 12 hours.",
-    "tags": ["outdoors", "hydration"]
+    "tags": [
+      "outdoors",
+      "hydration"
+    ],
+    "brand": "AquaFlex",
+    "color": "Steel",
+    "material": "Stainless Steel",
+    "specialFeatures": [
+      "Insulated",
+      "Leak-Proof"
+    ]
   },
   {
     "id": "p033",
@@ -534,10 +993,26 @@
     "reviewCount": 3204,
     "stock": 121,
     "images": [
-      "https://picsum.photos/seed/p033-a/800/800"
+      "https://picsum.photos/seed/p032-a/800/800",
+      "https://picsum.photos/seed/p032-b/800/800",
+      "https://picsum.photos/seed/p032-c/800/800"
     ],
     "description": "6mm extra-thick yoga mat with a non-slip textured surface and carrying strap included.",
-    "tags": ["fitness", "yoga"]
+    "tags": [
+      "fitness",
+      "yoga"
+    ],
+    "brand": "FlexCore",
+    "color": "Purple",
+    "material": "TPE",
+    "specialFeatures": [
+      "Non-Slip",
+      "Eco-Friendly"
+    ],
+    "includedComponents": [
+      "Carrying Strap"
+    ],
+    "discountPercent": 20
   },
   {
     "id": "p034",
@@ -550,11 +1025,27 @@
     "reviewCount": 892,
     "stock": 18,
     "images": [
-      "https://picsum.photos/seed/p034-a/800/800",
-      "https://picsum.photos/seed/p034-b/800/800"
+      "https://picsum.photos/seed/p033-a/800/800",
+      "https://picsum.photos/seed/p033-b/800/800",
+      "https://picsum.photos/seed/p033-c/800/800"
     ],
     "description": "Lightweight 3-season backpacking tent with a rainfly, weighing just 4.5 lbs packed.",
-    "tags": ["camping", "outdoors"]
+    "tags": [
+      "camping",
+      "outdoors"
+    ],
+    "brand": "SummitPeak",
+    "color": "Green",
+    "material": "Polyester",
+    "specialFeatures": [
+      "Waterproof",
+      "Easy Setup"
+    ],
+    "includedComponents": [
+      "Tent",
+      "Stakes",
+      "Carry Bag"
+    ]
   },
   {
     "id": "p035",
@@ -567,10 +1058,25 @@
     "reviewCount": 1077,
     "stock": 9,
     "images": [
-      "https://picsum.photos/seed/p035-a/800/800"
+      "https://picsum.photos/seed/p034-a/800/800",
+      "https://picsum.photos/seed/p034-b/800/800",
+      "https://picsum.photos/seed/p034-c/800/800"
     ],
     "description": "Space-saving adjustable dumbbell pair that replaces 15 sets of weights, dial-based quick adjustment.",
-    "tags": ["fitness", "strength"]
+    "tags": [
+      "fitness",
+      "strength"
+    ],
+    "brand": "GripLine",
+    "color": "Black",
+    "material": "Rubber-Coated Steel",
+    "specialFeatures": [
+      "Adjustable Weight"
+    ],
+    "includedComponents": [
+      "2 Dumbbells",
+      "Storage Tray"
+    ]
   },
   {
     "id": "p036",
@@ -583,9 +1089,27 @@
     "reviewCount": 2540,
     "stock": 0,
     "images": [
-      "https://picsum.photos/seed/p036-a/800/800"
+      "https://picsum.photos/seed/p035-a/800/800",
+      "https://picsum.photos/seed/p035-b/800/800",
+      "https://picsum.photos/seed/p035-c/800/800"
     ],
     "description": "Front and rear USB-rechargeable bike light set with 5 lighting modes and weatherproof housing.",
-    "tags": ["cycling", "outdoors"]
+    "tags": [
+      "cycling",
+      "outdoors"
+    ],
+    "brand": "PathLite",
+    "color": "Black",
+    "material": "Aluminum",
+    "specialFeatures": [
+      "Rechargeable",
+      "Water Resistant"
+    ],
+    "includedComponents": [
+      "Front Light",
+      "Rear Light",
+      "USB Cable"
+    ],
+    "discountPercent": 25
   }
 ]

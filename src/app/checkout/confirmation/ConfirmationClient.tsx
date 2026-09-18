@@ -92,7 +92,7 @@ export function ConfirmationClient() {
       </section>
 
       <p className="text-center text-xs text-muted">
-        This is a mock order for a demo project — no real payment was
+        This is a mock order for a demo project, no real payment was
         processed and nothing will be shipped.
       </p>
 

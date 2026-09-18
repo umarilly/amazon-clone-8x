@@ -19,7 +19,8 @@ export function ImageGallery({
           src={images[selected]}
           alt={alt}
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="(max-width: 640px) 100vw, 480px"
           className="object-cover"
         />

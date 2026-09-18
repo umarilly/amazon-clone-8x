@@ -1,7 +1,19 @@
-import { ProductGrid } from "@/components/product/ProductGrid";
+import { ProductList } from "@/components/search/ProductList";
+import { SortBar } from "@/components/search/SortBar";
 import { EmptyResults } from "@/components/search/EmptyResults";
 import { SearchFilters } from "@/components/search/SearchFilters";
-import { getCategories, queryProducts } from "@/lib/products";
+import { ResultsCount } from "@/components/search/ResultsCount";
+import { CATEGORY_FILTER_SCHEMA } from "@/lib/filterSchema";
+import { getCategories, queryProducts, type SortOption } from "@/lib/products";
+import type { AttributeFilterKey } from "@/lib/types";
+
+const SORT_OPTIONS: SortOption[] = [
+  "featured",
+  "price-asc",
+  "price-desc",
+  "rating-desc",
+  "newest",
+];
 
 function firstValue(value: string | string[] | undefined): string | undefined {
   return Array.isArray(value) ? value[0] : value;
@@ -23,34 +35,56 @@ export default async function SearchPage({
   const minPrice = parseNumber(firstValue(params.minPrice));
   const maxPrice = parseNumber(firstValue(params.maxPrice));
   const minRating = parseNumber(firstValue(params.minRating));
+  const onDeal = firstValue(params.deals) === "1";
+  const sortRaw = firstValue(params.sort);
+  const sort = SORT_OPTIONS.includes(sortRaw as SortOption)
+    ? (sortRaw as SortOption)
+    : "featured";
+
+  // Attribute facets (f_brand=A,B / f_color=Black) only apply — and only
+  // render in the sidebar — once a single category is selected, since the
+  // fields themselves are category-specific.
+  const fields = category ? CATEGORY_FILTER_SCHEMA[category] : undefined;
+  const attributes: Partial<Record<AttributeFilterKey, string[]>> = {};
+  if (fields) {
+    for (const field of fields) {
+      const raw = firstValue(params[`f_${field.key}`]);
+      if (raw) attributes[field.key] = raw.split(",").filter(Boolean);
+    }
+  }
 
   const categories = getCategories();
-  const results = queryProducts({ q, category, minPrice, maxPrice, minRating });
+  const results = queryProducts({
+    q,
+    category,
+    minPrice,
+    maxPrice,
+    minRating,
+    onDeal,
+    sort,
+    attributes: Object.keys(attributes).length ? attributes : undefined,
+  });
 
-  const heading = q
-    ? `Results for "${q}"`
-    : category
-      ? category
-      : "All Products";
+  const heading = q ? `Results` : category ? category : "All Products";
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-6 sm:flex-row sm:px-6">
-      <SearchFilters categories={categories} />
+    <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-4 py-4 sm:px-10">
+      <h1 className="sr-only">{heading}</h1>
+      <ResultsCount count={results.length} query={q} />
 
-      <div className="flex flex-1 flex-col gap-4">
-        <div>
-          <h1 className="text-xl font-bold text-foreground">{heading}</h1>
-          <p className="text-sm text-muted">
-            {results.length} {results.length === 1 ? "result" : "results"}
-          </p>
+      <main className="flex flex-1 flex-col gap-6 pt-4 sm:flex-row">
+        <SearchFilters categories={categories} />
+
+        <div className="flex flex-1 flex-col gap-4">
+          <SortBar />
+
+          {results.length === 0 ? (
+            <EmptyResults query={q} />
+          ) : (
+            <ProductList products={results} />
+          )}
         </div>
-
-        {results.length === 0 ? (
-          <EmptyResults query={q} />
-        ) : (
-          <ProductGrid products={results} />
-        )}
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }

@@ -2,17 +2,22 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { DEPARTMENTS } from "@/lib/departments";
 
 export function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = useState(searchParams.get("q") ?? "");
+  const [department, setDepartment] = useState(
+    searchParams.get("category") ?? "All Departments"
+  );
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const trimmed = value.trim();
     const params = new URLSearchParams();
     if (trimmed) params.set("q", trimmed);
+    if (department !== "All Departments") params.set("category", department);
     router.push(`/search${params.toString() ? `?${params.toString()}` : ""}`);
   }
 
@@ -22,8 +27,24 @@ export function SearchBar() {
       onSubmit={handleSubmit}
       className="flex h-10 min-w-0 flex-1 overflow-hidden rounded-md"
     >
+      <label htmlFor="department" className="sr-only">
+        Search department
+      </label>
+      <select
+        id="department"
+        value={department}
+        onChange={(e) => setDepartment(e.target.value)}
+        className="hidden shrink-0 rounded-l-md border-r border-gray-300 bg-[#f3f3f3] px-2 text-xs text-foreground outline-none sm:block"
+      >
+        {DEPARTMENTS.map((dept) => (
+          <option key={dept} value={dept}>
+            {dept}
+          </option>
+        ))}
+      </select>
+
       <label htmlFor="site-search" className="sr-only">
-        Search products
+        Search Amazon
       </label>
       <input
         id="site-search"
@@ -31,7 +52,7 @@ export function SearchBar() {
         name="q"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="Search products"
+        placeholder="Search Amazon"
         className="min-w-0 flex-1 bg-white px-3 text-sm text-foreground outline-none placeholder:text-muted"
       />
       <button
@@ -39,9 +60,8 @@ export function SearchBar() {
         aria-label="Search"
         className="flex w-10 shrink-0 items-center justify-center bg-search-btn text-header hover:brightness-95 sm:w-12"
       >
-        <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current">
-          <path d="M13.61 12.2a6.5 6.5 0 1 0-1.41 1.41l4.14 4.15a1 1 0 0 0 1.42-1.42l-4.15-4.14ZM3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Z" />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element -- local vector icon */}
+        <img src="/figma-icons/search.svg" alt="" className="h-5 w-5" />
       </button>
     </form>
   );

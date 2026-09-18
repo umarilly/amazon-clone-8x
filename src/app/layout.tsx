@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { CategoryNav } from "@/components/layout/CategoryNav";
+import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/lib/cart";
 import { AuthProvider } from "@/lib/auth";
-import { getCategories } from "@/lib/products";
+import { LocationProvider, LanguageProvider } from "@/lib/preferences";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Amazon Ember is a proprietary Amazon brand font with no licensed web
+// distribution available to this project — Roboto is used as the closest
+// self-hosted, guaranteed-to-render substitute (both are neutral humanist
+// grotesks with similar x-height/proportions), rather than naming
+// "Amazon Ember" in CSS and silently falling back to whatever the
+// viewer's OS happens to have installed.
+const roboto = Roboto({
+  variable: "--font-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,25 +26,24 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const categories = getCategories();
-
   return (
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${roboto.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white">
         <AuthProvider>
-          <CartProvider>
-            <Header />
-            <CategoryNav categories={categories} />
-            <div className="flex flex-1 flex-col">{children}</div>
-            <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-muted sm:px-6">
-              Amazon Clone — a 24-hour take-home demo. Not affiliated with
-              Amazon.com. All products, prices, and reviews are mock data.
-            </footer>
-          </CartProvider>
+          <LanguageProvider>
+            <LocationProvider>
+              <CartProvider>
+                <Header />
+                <CategoryNav />
+                <div className="flex flex-1 flex-col">{children}</div>
+                <Footer />
+              </CartProvider>
+            </LocationProvider>
+          </LanguageProvider>
         </AuthProvider>
       </body>
     </html>

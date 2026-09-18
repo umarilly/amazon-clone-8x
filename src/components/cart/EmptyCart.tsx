@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/lib/preferences";
 
 export function EmptyCart() {
+  const { t } = useLanguage();
   return (
     <div className="flex flex-col items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-6 py-16 text-center">
       <svg
@@ -15,16 +19,13 @@ export function EmptyCart() {
         <circle cx="9" cy="21" r="1" />
         <circle cx="18" cy="21" r="1" />
       </svg>
-      <h1 className="text-lg font-bold text-foreground">Your cart is empty</h1>
-      <p className="max-w-sm text-sm text-muted">
-        Browse the catalog and add something you like — it&apos;ll show up
-        here.
-      </p>
+      <h1 className="text-lg font-bold text-foreground">{t("yourCartIsEmpty")}</h1>
+      <p className="max-w-sm text-sm text-muted">{t("emptyCartHelp")}</p>
       <Link
         href="/"
         className="mt-2 rounded-full border border-cta-border/20 bg-cta px-4 py-2 text-sm font-medium text-foreground hover:brightness-95"
       >
-        Continue Shopping
+        {t("continueShopping")}
       </Link>
     </div>
   );

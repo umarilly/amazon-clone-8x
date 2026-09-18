@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuantityInput } from "./QuantityInput";
 import { useCart } from "@/lib/cart";
+import { useLanguage } from "@/lib/preferences";
 import { formatPrice } from "@/lib/format";
 import type { CartItem } from "@/lib/types";
 
 export function CartItemRow({ item }: { item: CartItem }) {
   const { updateQuantity, removeItem } = useCart();
+  const { t } = useLanguage();
 
   return (
     <li className="flex gap-4 border-b border-gray-200 py-4">
@@ -49,7 +51,7 @@ export function CartItemRow({ item }: { item: CartItem }) {
             onClick={() => removeItem(item.slug)}
             className="text-sm text-link hover:underline"
           >
-            Remove
+            {t("remove")}
           </button>
         </div>
       </div>

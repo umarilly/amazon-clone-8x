@@ -11,16 +11,22 @@ export default function Home() {
     products: allProducts.filter((p) => p.category === category),
   }));
 
-  const teasers = productsByCategory.map(({ category, products }) => ({
-    category,
-    product: products[0],
-  }));
+  const bestSellers = [...allProducts]
+    .sort((a, b) => b.reviewCount - a.reviewCount)
+    .slice(0, 10);
 
   return (
     <>
-      <HeroBanner teasers={teasers} />
+      <HeroBanner productsByCategory={productsByCategory} />
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-4 py-8 sm:px-6">
+      <main className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col gap-10 px-4 py-8 sm:px-10">
+        <ProductRail
+          category="Best Sellers"
+          products={bestSellers}
+          seeAllHref="/search"
+          priorityFirst
+        />
+
         {productsByCategory.map(({ category, products }) => (
           <ProductRail key={category} category={category} products={products} />
         ))}

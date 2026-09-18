@@ -29,7 +29,7 @@ export function ReviewsSection({
                 </span>
               </div>
               <p className="text-xs text-muted">
-                {review.author} — {review.date}
+                {review.author} · {review.date}
               </p>
               <p className="text-sm text-foreground">{review.body}</p>
             </li>

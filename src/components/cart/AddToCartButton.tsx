@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
+import { useLanguage } from "@/lib/preferences";
 import type { Product } from "@/lib/types";
 
 export function AddToCartButton({
@@ -14,6 +15,7 @@ export function AddToCartButton({
   className?: string;
 }) {
   const { addItem } = useCart();
+  const { t } = useLanguage();
   const [justAdded, setJustAdded] = useState(false);
   const outOfStock = product.stock <= 0;
 
@@ -44,7 +46,7 @@ export function AddToCartButton({
           : "border-cta-border/10 bg-cta text-foreground hover:brightness-95"
       } ${className}`}
     >
-      {outOfStock ? "Out of Stock" : justAdded ? "Added ✓" : "Add to Cart"}
+      {outOfStock ? t("outOfStock") : justAdded ? `${t("added")} ✓` : t("addToCart")}
     </button>
   );
 }

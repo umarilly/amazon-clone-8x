@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth";
+import { useLanguage } from "@/lib/preferences";
 
 function inputClass() {
   return "w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-link focus:outline-none focus:ring-1 focus:ring-link";
@@ -11,6 +12,7 @@ function inputClass() {
 
 export function SignUpForm() {
   const { refresh } = useAuth();
+  const { t } = useLanguage();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
@@ -46,9 +48,9 @@ export function SignUpForm() {
 
   return (
     <div className="mx-auto flex w-full max-w-sm flex-1 flex-col gap-4 px-4 py-10 sm:px-6">
-      <h1 className="text-xl font-bold text-foreground">Create account</h1>
+      <h1 className="text-xl font-bold text-foreground">{t("createAccount")}</h1>
       <p className="rounded-md bg-gray-50 p-3 text-xs text-muted">
-        This is a demo account system — accounts live only on this
+        This is a demo account system, accounts live only on this
         deployment&apos;s server and may be reset at any time.
       </p>
 
@@ -61,7 +63,7 @@ export function SignUpForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
-            Full name
+            {t("fullName")}
           </label>
           <input
             id="name"
@@ -74,7 +76,7 @@ export function SignUpForm() {
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="email" className="text-sm font-medium text-foreground">
-            Email
+            {t("email")}
           </label>
           <input
             id="email"
@@ -88,7 +90,7 @@ export function SignUpForm() {
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="password" className="text-sm font-medium text-foreground">
-            Password
+            {t("password")}
           </label>
           <input
             id="password"
@@ -107,7 +109,7 @@ export function SignUpForm() {
           disabled={submitting}
           className="w-full rounded-full border border-cta-border/10 bg-cta px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {submitting ? "Creating account…" : "Create account"}
+          {submitting ? "..." : t("createAccount")}
         </button>
       </form>
 
@@ -117,7 +119,7 @@ export function SignUpForm() {
           href={`/sign-in?redirect=${encodeURIComponent(redirectTo)}`}
           className="text-link hover:underline"
         >
-          Sign in
+          {t("signIn")}
         </Link>
       </p>
     </div>

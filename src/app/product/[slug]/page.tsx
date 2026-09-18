@@ -37,8 +37,23 @@ export default async function ProductPage({
 
   const reviews = getReviewsForProduct(product);
 
+  const specRows: { label: string; value: string }[] = [
+    { label: "Brand", value: product.brand },
+    { label: "Color", value: product.color },
+    { label: "Material", value: product.material },
+    { label: "Connectivity", value: product.connectivity },
+    { label: "Item Form", value: product.itemForm },
+    { label: "Skin Type", value: product.skinType },
+    { label: "Age Range", value: product.ageRange },
+    { label: "Format", value: product.format },
+    { label: "Language", value: product.language },
+    { label: "Genre", value: product.genre },
+    { label: "Special Features", value: product.specialFeatures?.join(", ") },
+    { label: "Included Components", value: product.includedComponents?.join(", ") },
+  ].filter((row): row is { label: string; value: string } => Boolean(row.value));
+
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-6 sm:px-6">
+    <main className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-6 sm:px-10">
       <nav aria-label="Breadcrumb" className="text-sm text-muted">
         <Link href="/" className="hover:text-link hover:underline">
           Home
@@ -61,6 +76,9 @@ export default async function ProductPage({
             <h1 className="text-xl font-medium text-foreground sm:text-2xl">
               {product.name}
             </h1>
+            {product.brand && (
+              <p className="mt-1 text-sm text-muted">Brand: {product.brand}</p>
+            )}
             <div className="mt-2">
               <StarRating
                 rating={product.rating}
@@ -71,9 +89,26 @@ export default async function ProductPage({
             </div>
           </div>
 
-          <p className="text-3xl font-semibold text-foreground">
-            {formatPrice(product.price, product.currency)}
-          </p>
+          {product.discountPercent ? (
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="rounded bg-red-700 px-1.5 py-0.5 text-sm font-bold text-white">
+                -{product.discountPercent}%
+              </span>
+              <p className="text-3xl font-semibold text-foreground">
+                {formatPrice(product.price, product.currency)}
+              </p>
+              <span className="text-sm text-muted line-through">
+                {formatPrice(
+                  product.price / (1 - product.discountPercent / 100),
+                  product.currency
+                )}
+              </span>
+            </div>
+          ) : (
+            <p className="text-3xl font-semibold text-foreground">
+              {formatPrice(product.price, product.currency)}
+            </p>
+          )}
 
           <div className="border-t border-gray-200 pt-4">
             <BuyBox product={product} />
@@ -89,6 +124,22 @@ export default async function ProductPage({
           {product.description}
         </p>
       </section>
+
+      {specRows.length > 0 && (
+        <section className="max-w-3xl border-t border-gray-200 pt-6">
+          <h2 className="mb-3 text-lg font-bold text-foreground">
+            Product information
+          </h2>
+          <dl className="divide-y divide-gray-100 text-sm">
+            {specRows.map((row) => (
+              <div key={row.label} className="flex gap-4 py-2">
+                <dt className="w-40 shrink-0 text-muted">{row.label}</dt>
+                <dd className="text-foreground">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <ReviewsSection reviews={reviews} totalReviewCount={product.reviewCount} />
     </main>

@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/lib/cart";
+import { useLanguage } from "@/lib/preferences";
 
 export function CartIcon() {
   const { itemCount } = useCart();
+  const { t } = useLanguage();
   const [bump, setBump] = useState(false);
   const previousCount = useRef(itemCount);
 
@@ -25,18 +27,20 @@ export function CartIcon() {
       className="relative flex shrink-0 items-center gap-1 rounded-sm border border-transparent px-2 py-1 hover:border-white"
       aria-label={`Cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
     >
-      <svg
-        viewBox="0 0 24 24"
-        className={`h-7 w-7 fill-current transition-transform duration-300 ${bump ? "scale-125" : "scale-100"}`}
-      >
-        <path d="M7 4h-2l-1 2v1h2l3.6 7.59-1.35 2.44A2 2 0 0 0 10 20h9v-2h-9l1.1-2h6.45a2 2 0 0 0 1.75-1.03L22 8H6.21l-.94-2H7V4Zm1 15a2 2 0 1 0 2 2 2 2 0 0 0-2-2Zm9 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z" />
-      </svg>
-      <span
-        className={`absolute -top-0.5 left-3 text-base font-bold text-cart-badge transition-transform duration-300 ${bump ? "scale-125" : "scale-100"}`}
-      >
-        {itemCount}
+      <span className="relative block h-9 w-9">
+        {/* eslint-disable-next-line @next/next/no-img-element -- local vector icon */}
+        <img
+          src="/figma-icons/cart.svg"
+          alt=""
+          className={`h-full w-full transition-transform duration-300 ${bump ? "scale-125" : "scale-100"}`}
+        />
+        <span
+          className={`absolute left-[53%] top-[31%] -translate-x-1/2 -translate-y-1/2 text-sm font-bold leading-none text-cart-badge transition-transform duration-300 ${bump ? "scale-125" : "scale-100"}`}
+        >
+          {itemCount}
+        </span>
       </span>
-      <span className="hidden font-bold sm:inline">Cart</span>
+      <span className="hidden font-bold sm:inline">{t("cart")}</span>
     </Link>
   );
 }

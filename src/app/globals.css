@@ -5,22 +5,30 @@
   --foreground: #0f1111;
 
   /*
-   * Amazon reference palette — sampled via getComputedStyle() against the
-   * live amazon.com header, search results, and product-detail buybox
-   * (2026-09-17), not guessed from memory. --color-star is the one
-   * exception: Amazon renders star ratings as an image sprite with no
-   * exposed CSS color, so this uses Amazon's publicly documented brand
-   * value for star ratings instead of a live-extracted one.
+   * Palette sourced from the project's Figma design system (Style Guide
+   * page, "Amazon UI Design" file) rather than sampled from live
+   * amazon.com — this file is the authoritative visual reference per the
+   * project owner (2026-09-18). --color-cta/--color-cta-border kept from
+   * the live-Amazon extraction since the Figma file's own primary action
+   * color (#C45500 / hover #B65B22) is used for links/accents there, not
+   * a yellow buy-button — the yellow "Add to Cart" pattern is still the
+   * more recognizable, higher-contrast choice and doesn't conflict with
+   * anything the Figma file specifies for buttons.
    */
-  --color-header: #131921;
-  --color-subnav: #232f3e;
+  --color-header: #141920;
+  --color-subnav: #252f3d;
   --color-cta: #ffd814;
   --color-cta-border: #0f1111;
-  --color-search-btn: #febd69;
-  --color-cart-badge: #f08804;
-  --color-link: #2162a1;
+  --color-search-btn: #f4bf76;
+  --color-cart-badge: #ff9900;
+  --color-link: #007185;
   --color-muted: #565959;
   --color-star: #ffa41c;
+  --color-accent-orange: #c45500;
+  --color-accent-orange-hover: #b65b22;
+  --color-price-red: #b12704;
+  --color-border-grey: #dddddd;
+  --color-border-grey-dark: #c9cccc;
 }
 
 @theme inline {
@@ -35,12 +43,47 @@
   --color-link: var(--color-link);
   --color-muted: var(--color-muted);
   --color-star: var(--color-star);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent-orange: var(--color-accent-orange);
+  --color-accent-orange-hover: var(--color-accent-orange-hover);
+  --color-price-red: var(--color-price-red);
+  --color-border-grey: var(--color-border-grey);
+  --color-border-grey-dark: var(--color-border-grey-dark);
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Amazon Ember", Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* Safety net: the page itself never shows a horizontal scrollbar, even
+     if something inside briefly overflows. Intentional horizontal-scroll
+     containers (nav links, product rails) use .no-scrollbar below instead
+     of relying on this. */
+  overflow-x: hidden;
+}
+
+/* Hides the scrollbar track/thumb on an intentionally horizontal-scroll
+   container while keeping it fully scrollable (touch/trackpad/drag) —
+   used by the nav links row and product rails. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Interactive elements always show a pointer cursor, not the browser
+   default cursor some of these get without it (native <a> tags already do
+   this on their own). Disabled/read-only controls are explicitly excluded
+   so they keep signaling "not clickable". */
+button:not(:disabled),
+[role="button"],
+select,
+summary,
+label[for],
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="submit"]:not(:disabled) {
+  cursor: pointer;
 }
