@@ -32,6 +32,24 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface Address {
+  fullName: string;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  zip: string;
+  phone?: string;
+}
+
+export interface Order {
+  orderNumber: string;
+  date: string;
+  items: CartItem[];
+  subtotal: number;
+  address: Address;
+}
+
 export interface ProductFilters {
   category?: string;
   minPrice?: number;

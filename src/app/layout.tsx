@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { CategoryNav } from "@/components/layout/CategoryNav";
 import { CartProvider } from "@/lib/cart";
+import { AuthProvider } from "@/lib/auth";
 import { getCategories } from "@/lib/products";
 import "./globals.css";
 
@@ -31,15 +32,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white">
-        <CartProvider>
-          <Header />
-          <CategoryNav categories={categories} />
-          <div className="flex flex-1 flex-col">{children}</div>
-          <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-muted sm:px-6">
-            Amazon Clone — a 24-hour take-home demo. Not affiliated with
-            Amazon.com. All products, prices, and reviews are mock data.
-          </footer>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <CategoryNav categories={categories} />
+            <div className="flex flex-1 flex-col">{children}</div>
+            <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-muted sm:px-6">
+              Amazon Clone — a 24-hour take-home demo. Not affiliated with
+              Amazon.com. All products, prices, and reviews are mock data.
+            </footer>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -40,12 +40,12 @@ export function CartClient() {
             {formatPrice(subtotal)}
           </span>
         </p>
-        <button
-          type="button"
-          className="w-full rounded-full border border-cta-border/10 bg-cta px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:brightness-95"
+        <Link
+          href="/checkout"
+          className="w-full rounded-full border border-cta-border/10 bg-cta px-4 py-2 text-center text-sm font-medium text-foreground shadow-sm hover:brightness-95"
         >
           Proceed to Checkout
-        </button>
+        </Link>
         <Link
           href="/"
           className="text-center text-sm text-link hover:underline"
