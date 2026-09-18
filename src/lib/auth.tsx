@@ -10,62 +10,61 @@ import {
   type ReactNode,
 } from "react";
 
-const STORAGE_KEY = "amazon-clone-signed-in";
+export interface AuthUser {
+  name: string;
+  email: string;
+}
 
 /**
- * Stubbed auth for Milestone 6 so the checkout gate can be built and
- * tested before real auth exists (Milestone 7). Milestone 7 replaces the
- * sign-in form and this storage-backed flag with a real mock user store —
- * the gate itself (RequireAuth) should not need to change.
+ * Real (mocked) auth: session lives in an httpOnly signed cookie set by
+ * /api/auth/*, so the client can't read it directly and has to ask the
+ * server. `isSignedIn` and `hydrated` keep the exact meaning they had in
+ * the Milestone 6 stub, so RequireAuth and the checkout gate don't change.
  */
 interface AuthContextValue {
+  user: AuthUser | null;
   isSignedIn: boolean;
   hydrated: boolean;
-  signIn: () => void;
-  signOut: () => void;
+  refresh: () => Promise<void>;
+  signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
+  const refresh = useCallback(async () => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      // Auth state must render the same (signed out) on the server and
-      // the initial client pass, so it can only be loaded post-mount.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (raw === "true") setIsSignedIn(true);
+      const res = await fetch("/api/auth/session", { cache: "no-store" });
+      const data = await res.json();
+      setUser(data?.user ?? null);
     } catch {
-      // Corrupted or unavailable storage — treat as signed out.
+      setUser(null);
     } finally {
       setHydrated(true);
     }
   }, []);
 
-  const signIn = useCallback(() => {
-    setIsSignedIn(true);
-    try {
-      localStorage.setItem(STORAGE_KEY, "true");
-    } catch {
-      // Ignore storage errors (e.g. private browsing).
-    }
-  }, []);
+  useEffect(() => {
+    // The cookie is httpOnly, so confirming auth state can only happen by
+    // asking the server — this can't be resolved during SSR/first paint.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    refresh();
+  }, [refresh]);
 
-  const signOut = useCallback(() => {
-    setIsSignedIn(false);
+  const signOut = useCallback(async () => {
     try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // Ignore storage errors.
+      await fetch("/api/auth/sign-out", { method: "POST" });
+    } finally {
+      setUser(null);
     }
   }, []);
 
   const value = useMemo(
-    () => ({ isSignedIn, hydrated, signIn, signOut }),
-    [isSignedIn, hydrated, signIn, signOut]
+    () => ({ user, isSignedIn: user !== null, hydrated, refresh, signOut }),
+    [user, hydrated, refresh, signOut]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

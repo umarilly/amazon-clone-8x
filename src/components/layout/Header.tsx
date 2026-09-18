@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { SearchBar } from "./SearchBar";
 import { CartIcon } from "@/components/cart/CartIcon";
+import { AccountMenu } from "@/components/auth/AccountMenu";
 
 export function Header() {
   return (
@@ -22,13 +23,7 @@ export function Header() {
         <SearchBar />
       </Suspense>
 
-      <button
-        type="button"
-        className="hidden shrink-0 flex-col rounded-sm border border-transparent px-2 py-1 text-left text-xs leading-tight hover:border-white sm:flex"
-      >
-        <span className="text-gray-300">Hello, sign in</span>
-        <span className="font-bold">Account &amp; Lists</span>
-      </button>
+      <AccountMenu />
 
       <CartIcon />
     </header>

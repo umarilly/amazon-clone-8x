@@ -9,11 +9,12 @@ function inputClass() {
   return "w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-link focus:outline-none focus:ring-1 focus:ring-link";
 }
 
-export function SignInForm() {
+export function SignUpForm() {
   const { refresh } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -24,10 +25,10 @@ export function SignInForm() {
     setError(null);
     setSubmitting(true);
     try {
-      const res = await fetch("/api/auth/sign-in", {
+      const res = await fetch("/api/auth/sign-up", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -45,10 +46,10 @@ export function SignInForm() {
 
   return (
     <div className="mx-auto flex w-full max-w-sm flex-1 flex-col gap-4 px-4 py-10 sm:px-6">
-      <h1 className="text-xl font-bold text-foreground">Sign in</h1>
+      <h1 className="text-xl font-bold text-foreground">Create account</h1>
       <p className="rounded-md bg-gray-50 p-3 text-xs text-muted">
-        This is a demo account system — passwords are hashed, but nothing
-        else is real (no email verification, no password reset).
+        This is a demo account system — accounts live only on this
+        deployment&apos;s server and may be reset at any time.
       </p>
 
       {error && (
@@ -58,6 +59,19 @@ export function SignInForm() {
       )}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="name" className="text-sm font-medium text-foreground">
+            Full name
+          </label>
+          <input
+            id="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={inputClass()}
+          />
+        </div>
+
         <div className="flex flex-col gap-1.5">
           <label htmlFor="email" className="text-sm font-medium text-foreground">
             Email
@@ -80,10 +94,12 @@ export function SignInForm() {
             id="password"
             type="password"
             required
+            minLength={6}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={inputClass()}
           />
+          <span className="text-xs text-muted">At least 6 characters.</span>
         </div>
 
         <button
@@ -91,17 +107,17 @@ export function SignInForm() {
           disabled={submitting}
           className="w-full rounded-full border border-cta-border/10 bg-cta px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {submitting ? "Signing in…" : "Sign in"}
+          {submitting ? "Creating account…" : "Create account"}
         </button>
       </form>
 
       <p className="text-center text-sm text-muted">
-        New here?{" "}
+        Already have an account?{" "}
         <Link
-          href={`/sign-up?redirect=${encodeURIComponent(redirectTo)}`}
+          href={`/sign-in?redirect=${encodeURIComponent(redirectTo)}`}
           className="text-link hover:underline"
         >
-          Create an account
+          Sign in
         </Link>
       </p>
     </div>
