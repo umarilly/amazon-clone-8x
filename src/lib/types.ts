@@ -22,6 +22,16 @@ export interface Review {
   body: string;
 }
 
+export interface CartItem {
+  slug: string;
+  name: string;
+  image: string;
+  price: number;
+  currency: string;
+  stock: number;
+  quantity: number;
+}
+
 export interface ProductFilters {
   category?: string;
   minPrice?: number;

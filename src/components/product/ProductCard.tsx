@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { StarRating } from "./StarRating";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
@@ -47,13 +48,7 @@ export function ProductCard({
         {formatPrice(product.price, product.currency)}
       </p>
 
-      <button
-        type="button"
-        disabled={outOfStock}
-        className="mt-auto w-full rounded-full border border-cta-border/10 bg-cta px-3 py-1.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:brightness-95 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-muted disabled:shadow-none disabled:hover:brightness-100"
-      >
-        {outOfStock ? "Out of Stock" : "Add to Cart"}
-      </button>
+      <AddToCartButton product={product} className="mt-auto w-full" />
     </div>
   );
 }

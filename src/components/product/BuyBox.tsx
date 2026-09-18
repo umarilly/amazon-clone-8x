@@ -1,37 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { QuantityInput } from "@/components/cart/QuantityInput";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import type { Product } from "@/lib/types";
 
-const MAX_QUANTITY_CAP = 10;
-
-export function BuyBox({ stock }: { stock: number }) {
+export function BuyBox({ product }: { product: Product }) {
+  const { stock } = product;
   const outOfStock = stock <= 0;
-  const maxQuantity = Math.min(stock, MAX_QUANTITY_CAP);
-  const [quantity, setQuantity] = useState<number | "">(1);
-
-  function clamp(value: number): number {
-    if (!Number.isFinite(value)) return 1;
-    return Math.min(Math.max(Math.trunc(value), 1), maxQuantity);
-  }
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const raw = e.target.value;
-    if (raw === "") {
-      setQuantity("");
-      return;
-    }
-    const parsed = Number(raw);
-    if (Number.isNaN(parsed)) return;
-    setQuantity(clamp(parsed));
-  }
-
-  function handleBlur() {
-    setQuantity((current) => (current === "" ? 1 : clamp(current)));
-  }
-
-  function step(delta: number) {
-    setQuantity((current) => clamp((current === "" ? 1 : current) + delta));
-  }
+  const [quantity, setQuantity] = useState(1);
 
   if (outOfStock) {
     return (
@@ -55,46 +32,15 @@ export function BuyBox({ stock }: { stock: number }) {
       </p>
 
       <div className="flex items-center gap-2">
-        <label htmlFor="quantity" className="text-sm text-foreground">
-          Qty:
-        </label>
-        <div className="flex items-center overflow-hidden rounded-md border border-gray-300">
-          <button
-            type="button"
-            onClick={() => step(-1)}
-            aria-label="Decrease quantity"
-            className="px-2.5 py-1 text-foreground hover:bg-gray-50"
-          >
-            −
-          </button>
-          <input
-            id="quantity"
-            type="number"
-            inputMode="numeric"
-            min={1}
-            max={maxQuantity}
-            value={quantity}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="w-12 border-x border-gray-300 py-1 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-          />
-          <button
-            type="button"
-            onClick={() => step(1)}
-            aria-label="Increase quantity"
-            className="px-2.5 py-1 text-foreground hover:bg-gray-50"
-          >
-            +
-          </button>
-        </div>
+        <span className="text-sm text-foreground">Qty:</span>
+        <QuantityInput quantity={quantity} stock={stock} onChange={setQuantity} />
       </div>
 
-      <button
-        type="button"
-        className="w-full rounded-full border border-cta-border/10 bg-cta px-4 py-2 text-sm font-medium text-foreground shadow-sm hover:brightness-95"
-      >
-        Add to Cart
-      </button>
+      <AddToCartButton
+        product={product}
+        quantity={quantity}
+        className="w-full px-4 py-2"
+      />
     </div>
   );
 }

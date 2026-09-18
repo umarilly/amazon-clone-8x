@@ -76,7 +76,7 @@ export default async function ProductPage({
           </p>
 
           <div className="border-t border-gray-200 pt-4">
-            <BuyBox stock={product.stock} />
+            <BuyBox product={product} />
           </div>
         </div>
       </div>
